@@ -16,4 +16,9 @@ export class MoviesComponent implements OnInit {
       this.allMovies = movies;
     });
   }
+
+  async createMovie(movie: Movie) {
+    const newMovie = await this.moviesService.create(movie);
+    this.allMovies?.push(newMovie);
+  }
 }

@@ -1,0 +1,47 @@
+<form [formGroup]="moviesCreateForm" (ngSubmit)="submit()" >
+  <h2>Add new movie</h2>
+  <div class="form-group row">
+    <label class="col-2" for="titleInput">Title</label>
+    <div class="col-10">
+      <input
+        name="title"
+        type="text"
+        id="titleInput"
+        class="form-control"
+        formControlName="title"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2" for="yearInput">Year</label>
+    <div class="col-10">
+      <input
+        name="year"
+        type="number"
+        class="form-control"
+        id="yearInput"
+        formControlName="year"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2" for="imdbTitleIdInput">IMDB Title ID</label>
+    <div class="col-10">
+      <input
+        name="imdbTitleId"
+        type="text"
+        class="form-control"
+        id="imdbTitleIdInput"
+        formControlName="imdbTitleId"
+      />
+    </div>
+  </div>
+  <button
+    [disabled]="moviesCreateForm.invalid"
+    type="submit"
+    class="btn btn-primary"
+    id="createMovieButton"
+  >
+    Create movie
+  </button>
+</form>
