@@ -4,6 +4,7 @@
       <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Year</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,9 @@
       <th>{{ movie.id }}</th>
       <td>{{ movie.title }}</td>
       <td>{{ movie.year }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(movie)">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -21,4 +21,15 @@ export class MoviesComponent implements OnInit {
     const newMovie = await this.moviesService.create(movie);
     this.allMovies?.push(newMovie);
   }
+
+  async deleteMovie(movie: Movie) {
+    const result = await this.moviesService.delete(movie);
+
+    if (result === true) {
+      const index = this.allMovies?.indexOf(movie, 0);
+      if (index !== undefined && index > -1) {
+        this.allMovies?.splice(index, 1);
+      }
+    }
+  }
 }
