@@ -1,4 +1,4 @@
-<table class="table table-light table-hover">
+<table class="table table-light table-hover" *ngIf="movies !== undefined">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -18,3 +18,7 @@
     </tr>
   </tbody>
 </table>
+
+<div class="alert alert-primary" role="alert" *ngIf="movies === undefined">
+  Oops! We can't find any movies!
+</div>
