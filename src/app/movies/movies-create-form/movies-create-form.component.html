@@ -1,4 +1,4 @@
-<form [formGroup]="moviesCreateForm" (ngSubmit)="submit()" >
+<form [formGroup]="moviesCreateForm" (ngSubmit)="submit()">
   <h2>Add new movie</h2>
   <div class="form-group row">
     <label class="col-2" for="titleInput">Title</label>
@@ -10,6 +10,15 @@
         class="form-control"
         formControlName="title"
       />
+      <div
+        *ngIf="
+          moviesCreateForm.get('title')!.invalid &&
+          moviesCreateForm.get('title')!.touched
+        "
+        class="form-text"
+      >
+        Please fill in a title.
+      </div>
     </div>
   </div>
   <div class="form-group row">
@@ -22,6 +31,24 @@
         id="yearInput"
         formControlName="year"
       />
+      <div
+        *ngIf="moviesCreateForm.get('year')!.touched && moviesCreateForm.get('year')!.errors?.['required']"
+        class="form-text"
+      >
+        Please fill in a year.
+      </div>
+      <div
+        *ngIf="moviesCreateForm.get('year')!.touched && moviesCreateForm.get('year')!.errors?.['min']"
+        class="form-text"
+      >
+        Please fill in a year after 1900.
+      </div>
+      <div
+        *ngIf="moviesCreateForm.get('year')!.touched && moviesCreateForm.get('year')!.errors?.['max']"
+        class="form-text"
+      >
+        Please fill in a year before or equal to the current year.
+      </div>
     </div>
   </div>
   <div class="form-group row">
@@ -34,6 +61,15 @@
         id="imdbTitleIdInput"
         formControlName="imdbTitleId"
       />
+      <div
+        *ngIf="
+          moviesCreateForm.get('imdbTitleId')!.invalid &&
+          moviesCreateForm.get('imdbTitleId')!.touched
+        "
+        class="form-text"
+      >
+        Please fill in an IMDB title ID.
+      </div>
     </div>
   </div>
   <button
